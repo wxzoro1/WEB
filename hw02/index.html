@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<style>
+
+p {text-align: center;  color: black }
+input{text-align: center; align:center; width: 50px;}
+table {text-align:center;align:center;margin: auto}
+td{ background-color: rgba(154, 184, 46, 0.904); border:solid #564f58d2; border-width:2px 2px 2px 2px; padding:10px 14px }
+td:hover { background-color: rgb(207, 207, 43);border-width:1.5px 1.5px 1.5px 1.5px }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Squares</title>
+</head>
+
+<body> 
+    <p>Please input number from 1 to 9 & Enter</p>
+    <div style="margin-left:47%;"><input type="text" id='btn' maxlength="1"></div>
+    <div id='table1' style="margin-top:60px" ><div>
+    
+    <script>
+        function drawTable(n){                    // 制表
+            var htable = '';
+            htable = "<table>"
+            for(var i = 1; i<= n ;i++){
+                htable +="<tr>";
+                    for(var j = 1; j<=n ;j++){
+                    var no= (i-1)*n+j ;
+                    htable += "<td>" + no +"</td>";
+                    }
+                htable +="</tr>";
+                }   
+            htable +="</table>"
+            document.getElementById("table1").innerHTML=htable;
+        }  
+            
+        function handleChangeTableDim(event){    // 传参
+            var el = event.target;
+            var dim = el.value;
+            drawTable(dim)
+  
+        }
+        var el = document.getElementById('btn');
+        el.onchange = handleChangeTableDim;
+
+    </script>
+
+</body>
+</html
